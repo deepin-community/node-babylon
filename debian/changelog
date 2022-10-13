@@ -1,0 +1,59 @@
+node-babylon (6.18.0+~6.16.5-1) unstable; urgency=medium
+
+  * Team upload
+  * Bump debhelper compatibility level to 13
+  * Use dh-sequence-nodejs
+  * Embed typescript definitions
+  * New upstream version 6.18.0+~6.16.5
+  * Add multi-arch hints
+
+ -- Xavier Guimard <yadd@debian.org>  Tue, 27 Oct 2020 12:16:00 +0100
+
+node-babylon (6.18.0-4) unstable; urgency=medium
+
+  * Team upload
+  * Build with babel7
+
+ -- Xavier Guimard <yadd@debian.org>  Mon, 11 May 2020 08:11:02 +0200
+
+node-babylon (6.18.0-3) unstable; urgency=medium
+
+  * Team upload
+  * Declare compliance with policy 4.5.0
+  * Bump debhelper compatibility level to 12
+  * Update VCS fields to salsa
+  * Use pkg-js-tools auto install
+  * Replace ava by tape in test
+  * Embed babel-helper-fixtures and try-resolve for test only
+  * Enable upstream test
+  * Add "Rules-Requires-Root: no"
+  * Add debian/gbp.conf
+  * Add upstream/metadata
+  * Update lintian overrides
+  * Update source url to github.com/babel/babel
+
+ -- Xavier Guimard <yadd@debian.org>  Wed, 19 Feb 2020 21:53:30 +0100
+
+node-babylon (6.18.0-2) unstable; urgency=medium
+
+  * Add copyright of src/plugins/jsx/fromCodePoint.js
+  * Change babel command to babeljs
+  * Transpile modules in .babelrc
+  * Don't use external-helpers plugin in .babelrc
+  * Move to main (does not need npm to build anymore)
+
+ -- Pirate Praveen <praveen@debian.org>  Tue, 26 Sep 2017 16:56:24 +0530
+
+node-babylon (6.18.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * Remove dependency on nodejs-legacy (Closes: #873800)
+  * Use system modules when available
+
+ -- Pirate Praveen <praveen@debian.org>  Tue, 19 Sep 2017 16:39:21 +0530
+
+node-babylon (6.14.1-1) unstable; urgency=low
+
+  * Initial release (Closes: #845174)
+
+ -- Pirate Praveen <praveen@debian.org>  Mon, 21 Nov 2016 11:08:17 +0530

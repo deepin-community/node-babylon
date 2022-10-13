@@ -1,0 +1,33 @@
+Source: node-babylon
+Section: javascript
+Priority: optional
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Pirate Praveen <praveen@debian.org>
+Build-Depends: debhelper-compat (= 13)
+ , node-babel7
+ , node-chalk
+ , node-rimraf
+ , node-semver <!nocheck>
+ , node-tape <!nocheck>
+ , dh-sequence-nodejs
+Standards-Version: 4.5.0
+Vcs-Browser: https://salsa.debian.org/js-team/node-babylon
+Vcs-Git: https://salsa.debian.org/js-team/node-babylon.git
+Homepage: https://babeljs.io/
+Testsuite: autopkgtest-pkg-nodejs
+Rules-Requires-Root: no
+
+Package: node-babylon
+Architecture: all
+Depends: ${misc:Depends}
+ , nodejs
+Multi-Arch: foreign
+Provides: ${nodejs:Provides}
+Description: JavaScript parser used in Babel
+ Babel is a JavaScript compiler to use next generation JavaScript, today.
+ .
+ ES2015 and beyond: Babel has support for the latest version of JavaScript
+ through syntax transformers. These plugins allow you to use new syntax, right
+ now without waiting for browser support.
+ .
+ Node.js is an event-based server-side JavaScript engine.

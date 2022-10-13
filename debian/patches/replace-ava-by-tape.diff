@@ -1,0 +1,61 @@
+Description: replace ava by tape in test
+Author: Xavier Guimard <yadd@debian.org>
+Forwarded: not-needed
+Last-Update: 2020-02-19
+
+--- a/test/index.js
++++ b/test/index.js
+@@ -1,6 +1,6 @@
+-import path from "path";
+-import { runFixtureTests } from "./utils/runFixtureTests";
+-import { parse, parseExpression } from "../lib";
++const path = require("path");
++const { runFixtureTests } = require("./utils/runFixtureTests");
++const { parse, parseExpression } = require("../lib");
+ 
+ runFixtureTests(path.join(__dirname, "fixtures"), parse);
+ runFixtureTests(path.join(__dirname, "expressions"), parseExpression);
+--- a/test/utils/runFixtureTests.js
++++ b/test/utils/runFixtureTests.js
+@@ -1,4 +1,4 @@
+-var test = require("ava");
++var test = require("tape");
+ var getFixtures = require("babel-helper-fixtures").multiple;
+ 
+ exports.runFixtureTests = function runFixtureTests(fixturesPath, parseFunction) {
+@@ -9,13 +9,11 @@
+       testSuite.tests.forEach(function (task) {
+         var testFn = task.disabled ? test.skip : task.options.only ? test.only : test;
+ 
+-        testFn(name + "/" + testSuite.title + "/" + task.title, function () {
+-            try {
+-              return runTest(task, parseFunction);
+-            } catch (err) {
+-              err.message = name + "/" + task.actual.filename + ": " + err.message;
+-              throw err;
+-            }
++        testFn(name + "/" + testSuite.title + "/" + task.title, function (t) {
++	    t.doesNotThrow(function() {
++              runTest(task, parseFunction);
++            });
++	    t.end();
+           });
+       });
+     });
+@@ -36,12 +34,10 @@
+         var testFn = task.disabled ? test.skip : task.options.only ? test.only : test;
+ 
+         testFn(name + "/" + testSuite.title + "/" + task.title, function () {
+-          try {
+-            return runTest(task, parseFunction);
+-          } catch (err) {
+-            err.message = task.actual.loc + ": " + err.message;
+-            throw err;
+-          }
++	  t.doesNotThrow(function() {
++            runTest(task, parseFunction);
++          });
++	  t.end();
+         });
+       });
+     });

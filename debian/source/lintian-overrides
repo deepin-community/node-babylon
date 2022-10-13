@@ -1,0 +1,4 @@
+# bin/generate-identifier-regex.js can be used to generate these 
+source: source-is-missing src/util/identifier.js line length is 4313 characters (>512)
+source: source-contains-prebuilt-javascript-object src/util/identifier.js line length is 4313 characters (>512)
+source: very-long-line-length-in-source-file src/util/identifier.js line length is 4313 characters (>512)

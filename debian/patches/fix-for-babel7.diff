@@ -1,0 +1,43 @@
+Description: fix to build with babel7
+Author: Xavier Guimard <yadd@debian.org>
+Forwarded: no
+Last-Update: 2020-05-11
+
+--- a/.babelrc
++++ b/.babelrc
+@@ -1,24 +1,4 @@
+ {
+-  "presets": [
+-    ["es2015", {
+-      "loose": false,
+-    }],
+-    "stage-0"
+-  ],
+-  "plugins": [
+-    "transform-flow-strip-types",
+-  ],
+-  "env": {
+-    "watch": {
+-      "presets": [
+-        ["es2015", {
+-          "loose": true
+-        }],
+-        "stage-0"
+-      ]
+-    },
+-    "test": {
+-      "plugins": ["istanbul"]
+-    }
+-  }
++  "presets": ["@babel/preset-env"],
++  "plugins": ["@babel/plugin-transform-flow-strip-types"]
+ }
+--- a/test/utils/runFixtureTests.js
++++ b/test/utils/runFixtureTests.js
+@@ -1,5 +1,5 @@
+ var test = require("tape");
+-var getFixtures = require("babel-helper-fixtures").multiple;
++var getFixtures = require("@babel/helper-fixtures").multiple;
+ 
+ exports.runFixtureTests = function runFixtureTests(fixturesPath, parseFunction) {
+   var fixtures = getFixtures(fixturesPath);

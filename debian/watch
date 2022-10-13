@@ -1,0 +1,10 @@
+version=4
+opts=\
+dversionmangle=auto,\
+filenamemangle=s/.*\/v?([\w\.-]+)\.tar\.gz/node-babylon-$1.tar.gz/ \
+ https://github.com/babel/babylon/tags?after=v7.0.0-beta.21 .*/archive/v?([\d\.]+).tar.gz group
+
+# It is not recommended use npmregistry. Please investigate more.
+# Take a look at https://wiki.debian.org/debian/watch/
+opts="searchmode=plain,component=types-babylon,pgpmode=none" \
+ https://registry.npmjs.org/@types/babylon https://registry.npmjs.org/@types/babylon/-/babylon-([\d\.]+)@ARCHIVE_EXT@ group
